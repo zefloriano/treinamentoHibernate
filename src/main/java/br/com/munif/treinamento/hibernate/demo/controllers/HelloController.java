@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.munif.treinamento.hibernate.demo.entidades.Estado;
 import br.com.munif.treinamento.hibernate.demo.entidades.Pais;
+import br.com.munif.treinamento.hibernate.demo.repositories.EstadoRepository;
 import br.com.munif.treinamento.hibernate.demo.repositories.PaisRepository;
 
 @RestController
@@ -17,11 +19,23 @@ public class HelloController {
 	@Autowired
 	private PaisRepository paisRepository;
 	
+	
+	@Autowired
+	private EstadoRepository estadoRepository;
+
+	
 	@RequestMapping("/paises")
 	public Iterable<Pais> lista(){
 		return paisRepository.findAll();
 		
 	}
+	
+	@RequestMapping("/estado")
+	public Iterable<Estado> listaEstado(){
+		return estadoRepository.findAll();
+		
+	}
+
 	
 	@RequestMapping("/novo")
 	public Pais novo(){
