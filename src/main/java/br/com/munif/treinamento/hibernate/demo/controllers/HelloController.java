@@ -1,6 +1,7 @@
 package br.com.munif.treinamento.hibernate.demo.controllers;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -33,9 +34,18 @@ public class HelloController {
 	@RequestMapping("/estado")
 	public Iterable<Estado> listaEstado(){
 		return estadoRepository.findAll();
-		
 	}
 
+
+	@RequestMapping("/estadobr")
+	public Iterable<Estado> listaEstado1(){
+		return estadoRepository.consultaBrs();
+	}
+
+	@RequestMapping("/estadon")
+	public List<Estado> listaEstado2(){
+		return estadoRepository.consultaBrs2();
+	}
 	
 	@RequestMapping("/novo")
 	public Pais novo(){

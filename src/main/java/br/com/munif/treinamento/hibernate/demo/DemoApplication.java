@@ -28,10 +28,10 @@ public class DemoApplication {
 	@PostConstruct
 	private void initDb() {
 		Pais br=paisRepository.save(new Pais("1111","Brasil"));
-		paisRepository.save(new Pais("2222","Paraguai"));
+		Pais pr=paisRepository.save(new Pais("2222","Paraguai"));
 		
 		estadoRepository.save(new Estado("1", "Paraná", "PR",br));
-		estadoRepository.save(new Estado("2", "Santa Catarina", "PR",br));
+		estadoRepository.save(new Estado("2", "Santa Catarina", "PR",pr));
 		
 		
 	}
